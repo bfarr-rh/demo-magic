@@ -78,11 +78,21 @@ pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 
 cmd
 
+pe "oc get pods,svc"
+
+cmd 
+
 cmd
 
 cmd
 
 pe "skupper link create pc-token.yaml"
+
+cmd
+
+pe "skupper link status"
+
+cmd
 
 cmd
 

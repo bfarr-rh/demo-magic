@@ -46,12 +46,17 @@ pe "skupper init --site-name publiccloud --console-auth=internal --console-user=
 # 
 pe "oc get pods,svc"
 
-p "Create the skupper token"
+cmd
+
 pe "skupper token create --token-type cert pc-token.yaml"
 
 cmd
 
-p "cat \"Link the skupper token with skupper link create pc-token.yaml\""
+pe "cat pc-token.yaml"
+
+cmd
+
+pe "skupper link status"
 
 cmd
 
