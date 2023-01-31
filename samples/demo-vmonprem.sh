@@ -100,12 +100,18 @@ cmd
 
 pe "skupper gateway expose db 127.0.0.1 5432 --type podman"
 
-pe "oc project app-modernisation"
+cmd
 
 pe "oc apply -f ../../jboss-breakdown-monolith/yaml/backend.yaml"
 
+cmd
+
+pe "oc get pods,svc"
+
+cmd
+
+# pe "skupper gateway unbind backend"
 pe "skupper gateway unexpose backend"
-pe "skupper gateway unbind backend"
 
 cmd
 # 
@@ -116,31 +122,8 @@ pe "skupper service status"
 
 pe "skupper gateway status"
 
-cmd
-
-pe "oc get svc,pods"
-
 # enters interactive mode and allows newly typed command to be executed
 cmd
-
-
-# wait max 3 seconds until user presses
-#PROMPT_TIMEOUT=3
-#wait
-
-# print and execute immediately: ls -l
-#pei "ls -l"
-
-
-# and reset it to manual mode to wait until user presses enter
-#PROMPT_TIMEOUT=0
-
-# print only
-#p "cat \"something you want to pretend to run\""
-
-# enters interactive mode and allows newly typed command to be executed
-cmd
-
 cmd
 cmd
 cmd
