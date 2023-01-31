@@ -51,14 +51,19 @@ pe "skupper token create --token-type cert pc-token.yaml"
 
 cmd
 
-p "Link the skupper token"
-p "skupper link create pc-token.yaml"
+p "cat \"Link the skupper token with skupper link create pc-token.yaml\""
 
 cmd
 
 pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 
 # enters interactive mode and allows newly typed command to be executed
+cmd
+
+cmd
+cmd
+cmd
+cmd
 cmd
 
 # show a prompt so as not to reveal our true nature after

@@ -76,6 +76,43 @@ cmd
 
 pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 
+cmd
+
+cmd
+
+cmd
+
+pe "skupper link create pc-token.yaml"
+
+cmd
+
+cmd
+
+pe "skupper gateway expose db 127.0.0.1 5432 --type podman"
+
+pe "oc project app-modernisation"
+
+pe "oc apply -f ../../jboss-breakdown-monolith/yaml/backend.yaml"
+
+pe "skupper gateway unexpose backend"
+pe "skupper gateway unbind backend"
+
+cmd
+# 
+pe "skupper expose deployment backend --port 8080"
+
+# 
+pe "skupper service status"
+
+pe "skupper gateway status"
+
+cmd
+
+pe "oc get svc,pods"
+
+# enters interactive mode and allows newly typed command to be executed
+cmd
+
 
 # wait max 3 seconds until user presses
 #PROMPT_TIMEOUT=3
@@ -92,6 +129,13 @@ pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 #p "cat \"something you want to pretend to run\""
 
 # enters interactive mode and allows newly typed command to be executed
+cmd
+
+cmd
+cmd
+cmd
+cmd
+cmd
 cmd
 
 # show a prompt so as not to reveal our true nature after
