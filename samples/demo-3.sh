@@ -38,19 +38,27 @@ clear
 # enters interactive mode and allows newly typed command to be executed
 cmd
 
-pe "oc new-project app-modernisation"
+pe "skupper gateway expose db 127.0.0.1 5432 --type podman"
+
+pe "oc project app-modernisation"
+
+pe "oc apply -f ../../jboss-breakdown-monolith/yaml/backend.yaml"
+
+pe "skupper gateway unexpose backend"
+pe "skupper gateway unbind backend"
+
+cmd
+# 
+pe "skupper expose deployment backend --port 8080"
 
 # 
-pe "skupper init --site-name publiccloud --console-auth=internal --console-user=admin --console-password=password"
+pe "skupper service status"
 
-# 
-pe "oc get pods,svc"
-
-pe "skupper link create onprem-token.yaml"
+pe "skupper gateway status"
 
 cmd
 
-pe "oc apply -f ./jboss-breakdown-monolith/yaml/frontend.yaml"
+pe "oc get svc,pods"
 
 # enters interactive mode and allows newly typed command to be executed
 cmd

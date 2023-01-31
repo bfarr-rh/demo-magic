@@ -41,7 +41,7 @@ cmd
 # put your demo awesomeness here
 pe "ps -ef | grep jboss"
 
-pe "ls ./jboss-eap-7.4/standalone/deployments/"
+pe "ls ../../jboss-eap-7.4/standalone/deployments/"
 
 cmd
 
@@ -74,7 +74,7 @@ pe "oc get svc/backend -o yaml"
 
 cmd
 
-pe "oc apply -f ./yaml/frontend.yaml"
+pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 
 
 # wait max 3 seconds until user presses
@@ -89,7 +89,7 @@ pe "oc apply -f ./yaml/frontend.yaml"
 #PROMPT_TIMEOUT=0
 
 # print only
-p "cat \"something you want to pretend to run\""
+#p "cat \"something you want to pretend to run\""
 
 # enters interactive mode and allows newly typed command to be executed
 cmd

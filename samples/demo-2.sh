@@ -56,7 +56,7 @@ p "skupper link create pc-token.yaml"
 
 cmd
 
-pe "oc apply -f ./jboss-breakdown-monolith/yaml/frontend.yaml"
+pe "oc apply -f ../../jboss-breakdown-monolith/yaml/frontend.yaml"
 
 # enters interactive mode and allows newly typed command to be executed
 cmd
