@@ -41,7 +41,7 @@ cmd
 pe "oc new-project app-modernisation"
 
 # 
-pe "skupper init --site-name publiccloud --console-auth=internal --console-user=admin --console-password=password"
+pe "skupper init --enable-console --enable-flow-collector --site-name publiccloud --console-auth=internal --console-user=admin --console-password=password"
 
 # 
 pe "oc get pods,svc"

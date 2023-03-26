@@ -50,7 +50,7 @@ pe "podman ps"
 
 pe "oc new-project app-modernisation"
 
-pe "skupper init --site-name onpremises --console-auth=internal --console-user=admin --console-password=password"
+pe "skupper init --enable-console --enable-flow-collector --site-name onpremises --console-auth=internal --console-user=admin --console-password=password"
 
 cmd
 
@@ -94,7 +94,10 @@ pe "skupper link status"
 
 cmd
 
+#cmd
+#pe "skupper gateway unbind backend"
 cmd
+pe "skupper gateway unexpose backend"
 
 cmd
 
@@ -109,9 +112,6 @@ cmd
 pe "oc get pods,svc"
 
 cmd
-
-# pe "skupper gateway unbind backend"
-pe "skupper gateway unexpose backend"
 
 cmd
 # 
